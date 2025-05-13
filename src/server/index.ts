@@ -36,17 +36,7 @@ export class Chat extends Server<Env> {
       } satisfies Message),
     );
 
-    // Prompt the user to pick a name
-    connection.send(
-      JSON.stringify({
-        type: "namePrompt",
-        message: "Please set your name to continue.",
-      }),
-    );
 
-    // Store the user's name in the connection object (default to 'Anonymous')
-    connection.userName = "Anonymous";
-  }
 
   saveMessage(message: ChatMessage) {
     const existingMessage = this.messages.find((m) => m.id === message.id);
